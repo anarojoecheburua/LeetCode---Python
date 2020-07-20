@@ -1,0 +1,24 @@
+class Solution(object):
+    def findNumbers(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) <= 500:
+            arrayCount =[]
+            numberCount = 0
+            for i in range(0,len(nums)):
+                if nums[i] >= 1 and nums[i] <= 10**5:
+                    currentNumber = nums[i]
+                    digitCount = 0
+                    while currentNumber >= 1:
+                        digitCount += 1
+                        currentNumber = currentNumber/10
+                    arrayCount.append(digitCount)
+                    if arrayCount[i] % 2 == 0:
+                        numberCount +=1
+                else:
+                    return(0)
+        else:
+            return(0)
+        return(numberCount)
