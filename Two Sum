@@ -5,8 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i in range(0,len(nums)):
-            for j in range(i+1,len(nums)):
-                sum = nums[i] + nums[j]
-                if sum == target:
-                    return(i,j)
+        dictionary = {}
+        for index, num in enumerate(nums):
+            difference = target - num
+            if difference in dictionary:
+                return [dictionary[difference], index]
+            else:
+                dictionary[num] = index
