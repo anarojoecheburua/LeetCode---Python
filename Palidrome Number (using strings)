@@ -1,0 +1,11 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x > 0:
+            solution = int(str(x)[::-1])
+        else:
+            solution = int(str(x*-1)[::-1])
+        return(solution==x)
