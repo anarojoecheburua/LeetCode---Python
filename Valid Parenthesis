@@ -1,0 +1,16 @@
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        mappingParenthesis = {')':'(', ']':'[', '}':'{'}
+        openParenthesis = {'(','[','{'}
+        checkParenthesis = []
+        for character in s:
+            if (character in openParenthesis):
+                checkParenthesis.append(character)
+            else:
+                if(len(checkParenthesis)==0 or mappingParenthesis[character] != checkParenthesis.pop()):
+                    return(False)
+        return(len(checkParenthesis)==0)
