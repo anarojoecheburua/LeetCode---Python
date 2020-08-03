@@ -1,0 +1,42 @@
+class Node:
+    def __init__(self, val = None, next=None): 
+        self.val = val
+        self.next = next
+
+class LinkedList:
+    def __init__(self):  
+        self.head = None
+        
+    def insert(self, val):
+        newNode = Node(val)
+        if(self.head):
+            current = self.head
+            while(current.next):
+                current = current.next
+            current.next = newNode
+        else:
+            self.head = newNode
+            
+    def printLL(self):
+        current = self.head
+        while(current):
+            print(current.val)
+            current = current.next
+            
+class Solution(object):
+    def mergeTwoLists(self,List1, List2):
+        headOutput = currentNode = Node()
+        if not List1:
+            return List2
+        if not List2:
+            return List1
+        while not (List1 is None or List2 is None):
+            if List1.val <= List2.val:
+                currentNode.next = Node(List1.val)
+                List1 = List1.next
+            else:
+                currentNode.next = Node(List2.val)
+                List2 = List2.next
+            currentNode = currentNode.next
+        currentNode.next = List1 or List2
+        return headOutput.next
