@@ -1,0 +1,16 @@
+def binarySearch(arr, value, startPos, endPos):
+    if startPos == endPos:
+        return(startPos + (arr[startPos] < value))
+    index = (startPos + endPos)//2
+    if arr[index] == value:
+        return(index)
+    elif arr[index] > value:
+        print(startPos,endPos)
+        return(binarySearch(arr, value, startPos, index))
+    elif arr[index] < value:
+        print(startPos,endPos)
+        return(binarySearch(arr, value, index + 1, endPos))
+    
+class Solution(object):
+    def searchInsert(self, nums, target):
+        return binarySearch(nums, target, 0, len(nums)-1)
