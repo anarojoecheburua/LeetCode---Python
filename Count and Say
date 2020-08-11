@@ -1,0 +1,23 @@
+class Solution(object):
+    def countAndSay(self, n):
+        sequence = "1"
+        n -= 1
+    
+        while n > 0:
+            solution = ""
+            count = 0
+            trackCharacter = sequence[0]
+        
+            for char in sequence:
+                if char == trackCharacter:
+                    count += 1
+                else:
+                    solution += str(count) + trackCharacter
+                    trackCharacter = char
+                    count = 1
+        
+            solution += str(count) + trackCharacter
+            sequence = solution
+            n -= 1
+            
+        return(sequence)
