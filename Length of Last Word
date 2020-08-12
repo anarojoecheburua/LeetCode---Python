@@ -1,0 +1,14 @@
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        countLengthOfLastWord = 0
+        waitingForNewWord = True
+        for character in s:
+            if character == " ":
+                waitingForNewWord = True
+            else:
+                if waitingForNewWord:
+                    waitingForNewWord = False
+                    countLengthOfLastWord = 1
+                else:
+                    countLengthOfLastWord += 1
+        return countLengthOfLastWord
