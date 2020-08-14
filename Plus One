@@ -1,0 +1,19 @@
+class Solution(object):
+    def plusOne(self, digits):
+        index = -1
+        endAddition = True
+        while index != -len(digits):
+            if digits[index] == 9:
+                digits[index] = 0
+                index +=-1
+            else:
+                digits[index] = digits[index] + 1
+                endAddition = False
+                break
+        if endAddition:
+            if digits[index] != 9:
+                digits[index] = digits[index] + 1
+            else:
+                digits[index] = 0
+                digits.insert(0,1)
+        return(digits) 
