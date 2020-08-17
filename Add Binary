@@ -1,0 +1,45 @@
+class Solution(object):
+    def addBinary(self, a, b):
+        solution =""
+        if len(a) > len(b):
+            numberZeros = len(a)-len(b)
+            b = '0'*numberZeros + b
+        else:
+            numberZeros = len(b)-len(a)
+            a = '0'*numberZeros + a
+        index = -1
+        addOne = False
+        while index >= -len(a):
+            if a[index] == "0" and b[index] == "0":
+                if addOne:
+                    solution = solution + "1"
+                else:
+                    solution = solution + "0"
+                addOne = False
+                index += -1
+            elif a[index] == "1" and b[index] == "0":
+                if addOne:
+                    solution = solution + "0"
+                    addOne = True
+                else:
+                    solution = solution + "1"
+                    addOne = False
+                index += -1
+            elif a[index] == "0" and b[index] == "1":
+                if addOne:
+                    solution = solution + "0"
+                    addOne = True
+                else:
+                    solution = solution + "1"
+                    addOne = False
+                index += -1
+            else:
+                if addOne:
+                    solution = solution + "1"
+                else:
+                    solution = solution + "0"
+                index += -1
+                addOne = True
+        if addOne:
+            solution = solution + "1"
+        return(solution[::-1])
