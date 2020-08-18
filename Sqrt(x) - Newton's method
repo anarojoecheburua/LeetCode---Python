@@ -1,0 +1,8 @@
+class Solution(object):
+    def mySqrt(self, x):
+        init = 1
+        while True:
+            solution = 0.5 * (init + x/init)
+            init = solution
+            if int(init**2) <= x:
+                return(int(solution))
