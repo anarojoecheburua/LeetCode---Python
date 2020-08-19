@@ -1,0 +1,12 @@
+class Solution(object):
+    import math
+    def climbStairs(self, n):
+        count = 0
+        for k in range(n+1):
+            for m in range(n+1):
+                if 2*k + m == n:
+                    if k!=0 and m!=0:
+                        count += int(math.factorial(k+m)/(math.factorial(k)*math.factorial(m))) 
+                    else:
+                        count +=1
+        return(count)
